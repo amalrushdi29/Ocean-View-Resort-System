@@ -1,0 +1,319 @@
+@charset "UTF-8";
+
+/* Global Reset and Modern Base Styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f5f7fa;
+    overflow-x: hidden;
+}
+
+/* Header - Admin Blue Design */
+.header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    box-shadow: 0 4px 20px rgba(30, 58, 138, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.system-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 18px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.profile:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    object-fit: cover;
+}
+
+.staff-name {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+/* Sidebar - Modern Design with Toggle */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    height: calc(100vh - 70px);
+    position: fixed;
+    top: 70px;
+    left: 0;
+    padding: 25px 0;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.05);
+    z-index: 999;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: all 0.3s ease;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 10px;
+}
+
+/* Sidebar List */
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar > ul > li {
+    margin: 8px 15px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Icons in sidebar */
+.sidebar ul li a i {
+    font-size: 16px;
+    min-width: 20px;
+    transition: all 0.3s ease;
+}
+
+.sidebar ul li a .nav-text {
+    margin-left: 15px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar ul li a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    color: #1e3a8a;
+    transform: translateX(5px);
+}
+
+.sidebar ul li a:hover::before {
+    transform: scaleY(1);
+}
+
+/* Active/Selected Item - Blue Pill Style */
+.sidebar ul li a.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.sidebar ul li a.active::before {
+    display: none;
+}
+
+.sidebar ul li a.active:hover {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    transform: translateX(5px);
+}
+.sidebar ul li a[href="index.jsp"]:hover {
+    background: linear-gradient(135deg, rgba(220, 38, 38, 0.1) 0%, rgba(239, 68, 68, 0.1) 100%) !important;
+    color: #dc2626 !important;
+}
+
+.sidebar ul li a[href="index.jsp"]:hover::before {
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%) !important;
+}
+
+/* Navigation Group Styles */
+.nav-group {
+    position: relative;
+}
+
+.group-toggle {
+    position: relative;
+    cursor: pointer;
+}
+
+.group-arrow {
+    position: absolute;
+    right: 20px;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.group-toggle.active .group-arrow {
+    transform: rotate(180deg);
+}
+
+/* Submenu Styles */
+.sub-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.sub-menu li {
+    margin: 4px 0;
+}
+
+.sub-menu li a {
+    padding: 12px 20px 12px 45px;
+    font-size: 14px;
+}
+
+/* Submenu active state */
+.sub-menu li a.active {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+/* Main content */
+.main-content {
+    margin-left: 250px;
+    margin-top: 70px;
+    padding: 25px;
+    min-height: calc(100vh - 70px);
+    transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+    }
+    
+    .main-content {
+        margin-left: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: 12px 20px;
+    }
+    
+    .system-name {
+        font-size: 16px;
+    }
+    
+    .system-name svg {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .system-name > div > div:first-child {
+        font-size: 18px;
+    }
+    
+    .system-name > div > div:last-child {
+        font-size: 10px;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        width: 250px;
+    }
+    
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .profile-pic {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .staff-name {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px 15px;
+    }
+    
+    .system-name {
+        font-size: 14px;
+        gap: 8px;
+    }
+    
+    .system-name svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .system-name > div > div:first-child {
+        font-size: 15px;
+    }
+    
+    .system-name > div > div:last-child {
+        font-size: 9px;
+    }
+    
+    .main-content {
+        padding: 15px;
+        margin-top: 60px;
+    }
+}
