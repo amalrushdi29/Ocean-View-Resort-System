@@ -47,6 +47,3 @@ OceanViewResort/
 - Mohamed Amal
 - GitHub: [@amalrushdi29](https://github.com/amalrushdi29)
 
-Commit message for README:
-```
-docs: Add README.md - Ocean View Resort System project documentation
